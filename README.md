@@ -3,6 +3,8 @@
 A robust C++ CLI tool for downloading, resharding, and re-uploading large Hugging Face models. 
 It uses `pybind11` to seamlessly bind with the Python Hugging Face ecosystem (`transformers`, `huggingface_hub`, `torch`), offering the safety and structure of C++ with the vast library support of Python.
 
+Primary Focus: Maintains version control and transforms files from older Transformers versions to newer formats with configurable shard sizes.
+
 ## Prerequisites
 
 - **C++17 Compiler** (GCC, Clang, MSVC)
