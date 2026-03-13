@@ -59,3 +59,32 @@ After building, you can run the compiled executable located in the `build/Releas
 
 ### Important Note on Security
 **Never expose or commit your HuggingFace token (`hf_...`).** Pass it securely via the command line when executing the binary.
+
+## Running in Google Colab
+
+You can easily run this C++ application in Google Colab. Colab already provides the essential tools (Python 3, GCC, and CMake).
+
+1. Open a new [Google Colab Notebook](https://colab.research.google.com/).
+2. Create a new code cell and paste the following block to clone, build, and run the project all at once:
+
+```bash
+# Clone the repository
+!git clone https://github.com/PRITHIVSAKTHIUR/model.resharder-transformers.cpp.git
+%cd model.resharder-transformers.cpp
+
+# Install dependencies (Python dev headers)
+!apt-get update && apt-get install -y python3-dev
+
+# Build the project
+!mkdir build
+%cd build
+!cmake ..
+!cmake --build . --config Release
+
+# Run the executable (replace arguments with your specific model details)
+!./resharder --model_name username/source-model_page \
+             --repo_id your-username/target-model_page \
+             --token <YOUR_HF_TOKEN> \
+             --shard_size 4.4GB \
+             --arch Qwen3_5ForConditionalGeneration
+```
